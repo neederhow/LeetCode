@@ -139,4 +139,34 @@ public class ArraysAlgorithm {
         }
         return index;
     }
+
+    /**
+     * 给定一个由整数组成的非空数组所表示的非负整数，在该数的基础上加一。
+     *
+     * 最高位数字存放在数组的首位， 数组中每个元素只存储一个数字。
+     *
+     * 你可以假设除了整数 0 之外，这个整数不会以零开头。
+     *
+     * 来源：力扣（LeetCode）
+     * 链接：https://leetcode-cn.com/problems/plus-one
+     * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
+     */
+    public int[] plusOne(int[] digits) {
+        return plusOne_1(digits);
+    }
+
+    // time: 1 ms men: 35.8 MB
+    public int[] plusOne_1(int[] digits){
+        int n =digits.length;
+        for (int i = 1; i <= n; i++) {
+            if (digits[n-i]<9){
+                digits[n-i] = digits[n-i]+1;
+                return digits;
+            }
+            digits[n-i]=0;
+        }
+        int[] res = new int[n+1];
+        res[0]=1;
+        return res;
+    }
 }
